@@ -1,0 +1,36 @@
+﻿@model billiard_web.Models.BookingModel
+
+@{
+    ViewBag.Title = "Booking Meja";
+}
+
+<h2>Booking Meja</h2>
+
+@using (Html.BeginForm("Order", "Booking", FormMethod.Post))
+{
+    <div>
+        <label><b>Meja</b></label><br />
+        @Html.TextBoxFor(m => m.Meja, new { @class = "form-control", @value = "Meja 1" })
+    </div>
+
+    <div>
+        <label><b>Jam</b></label><br />
+        @Html.TextBoxFor(m => m.Jam, "{0:hh\\:mm}", new { @type = "time", @class = "form-control" })
+    </div>
+
+    <div>
+        <label><b>Sewa Berapa Jam</b></label><br />
+        @Html.TextBoxFor(m => m.LamaSewa, new { @class = "form-control", type = "number" })
+    </div>
+
+    <div>
+        <label><b>Harga</b></label><br />
+        <p>Harga per jam nya 30.000</p>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">ORDER</button>
+}
+
+<form action="@Url.Action("ViewOrder", "Booking")" method="get">
+    <button type="submit" class="btn btn-success mt-2">VIEW ORDER</button>
+</form>

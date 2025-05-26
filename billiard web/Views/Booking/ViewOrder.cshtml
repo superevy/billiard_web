@@ -1,0 +1,19 @@
+﻿@model billiard_web.Models.BookingModel
+
+@{
+    ViewBag.Title = "Order Anda";
+}
+
+< h2 > Order Anda </ h2 >
+
+@if(Model != null)
+{
+    < p >< strong > Meja:</ strong > @Model.Meja </ p >
+    < p >< strong > Jam:</ strong > @Model.Jam </ p >
+    < p >< strong > Lama Sewa:</ strong > @Model.LamaSewa jam </ p >
+    < p >< strong > Total Harga:</ strong > Rp @Model.TotalHarga.ToString("N0") </ p >
+}
+else
+{
+    < p > Belum ada order.</ p >
+}
